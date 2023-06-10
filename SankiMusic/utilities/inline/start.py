@@ -1,21 +1,26 @@
 from typing import Union
+
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from SankiMusic.utilities.config import config
+import config
 
 
 def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="≽ ᴄᴏᴍᴍᴀɴᴅs ≼",
-                url=f"https://t.me/{BOT_USERNAME}?start=help",
+                text="➕ 𝐀ᴅᴅ 𝐌ᴇ 𝐓ᴏ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ ➕",
+                url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text="✮ sᴇᴛᴛɪɴɢs ✮", callback_data="settings_helper"
-            )
+                text="🔧 𝐇ᴇʟᴘ 🔧️",
+                callback_data="settings_back_helper",
+            ),
+            InlineKeyboardButton(
+                text="⚙️ 𝐒ᴇᴛᴛɪɴɢs ⚙️", callback_data="settings_helper"
+            ),
         ],
      ]
     return buttons
@@ -25,27 +30,26 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
     buttons = [
         [
             InlineKeyboardButton(
-                text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
+                text="➕ 𝐀ᴅᴅ 𝐌ᴇ 𝐓ᴏ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ ➕",
                 url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
             )
         ],
         [
             InlineKeyboardButton(
-                text="❀⋟ ʜᴇʟᴘ ⋞❀", callback_data="settings_back_helper"
+                text="🔧 𝐇ᴇʟᴘ & 𝐂ᴏᴍᴍᴀɴᴅ 🔧", callback_data="settings_back_helper"
             )
         ],
         [
             InlineKeyboardButton(
-                text="✭ ᴜᴘᴅᴀᴛᴇs ✭", url=config.SUPPORT_CHANNEL
+                text="🥀 𝐒ᴜᴘᴘᴏʀᴛ 💥", url="https//t.me/timepassgroup01")
             ),
             InlineKeyboardButton(
-                text="✭ sᴜᴘᴘᴏʀᴛ ✭", url=config.SUPPORT_GROUP
-            )
+                text="🥀 𝐆ʀᴏᴜᴘ 💥", url="https://t.me/dangerous_fighter_clan_0")
         ],
         [
             InlineKeyboardButton(
-                text="✮ sᴏᴜʀᴄᴇ ✮", url="https://github.com/XdityaHalder/SankiMusic"
+                text="♕︎ 𝐎ᴡɴᴇʀ ♕", url="https//t.me/taitangamer")
             )
-        ]
+        ],
      ]
     return buttons
